@@ -1,0 +1,34 @@
+{
+  "quality": {
+    "name": "JointLPIPS_190k",
+    "num_pairs": 2500,
+    "psnr": 20.859516143798828,
+    "ssim": 0.7969875335693359,
+    "lpips": 0.17831425368785858,
+    "mse": 0.009683748707175255,
+    "akd": 4.903251606225967,
+    "csim": 0.735977851819313,
+    "aed": 0.13354454067498445,
+    "apd": 0.015111849666549824,
+    "failures": 0
+  },
+  "quality_protocol": "50 VFHQ videos x 50 target frames; FlexAvatar crop_vfhq; SqueezeNet LPIPS",
+  "timing": {
+    "timed_samples": 20,
+    "warmup_samples": 3,
+    "mean_ms": 57.37782495561987,
+    "std_ms": 0.35633079068561313,
+    "median_ms": 57.40703654009849,
+    "min_ms": 56.29156902432442,
+    "max_ms": 57.84036498516798,
+    "fps": 17.428335786054486,
+    "peak_memory_mib": 1313.89892578125,
+    "scope": "model + Gaussian renderer + post-render refiner; preloaded tensors; batch=1"
+  },
+  "sample_ids": [
+    "1380_020027_00000065",
+    "0756_020015_00000015",
+    "2013_020040_00000047",
+    "1995_020039_00000149"
+  ]
+}
