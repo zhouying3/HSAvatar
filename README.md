@@ -1,19 +1,17 @@
-# OEAvatar project page
+# OEAvatar
 
-Static project-page preview for **OEAvatar: One-shot Animatable Gaussian Head Avatars with Source-adaptive Geometry and Geometry-aligned Appearance**.
+Project page for **One-shot Animatable Gaussian Head Avatars with Source-adaptive Geometry and Geometry-aligned Appearance**.
 
-This repository contains the website, not the model implementation or model checkpoints. The current preview presents archived self-reenactment images and evaluation results. Continuous Self/Cross comparison videos are in preparation; author and publication resources will be added when finalized.
+[Project page](https://zhouying3.github.io/OEAvatar/)
 
-## Preview locally
+Ying Zhou, ZhongYuan Zhao, and Feng Gao — Peking University and Pengcheng Laboratory.
+
+The page includes four self-reenactment examples and four cross-identity driving examples, with selectable comparisons against ROME, OTAvatar, Portrait4D, HunyuanPortrait and UIKA. Source IDs, driver IDs and frame numbers are displayed alongside the results. Evaluation protocols are described on the page.
+
+## Local preview
 
 ```sh
 python3 -m http.server 8000 --bind 127.0.0.1
 ```
 
-Open http://127.0.0.1:8000 . No build step or external runtime dependencies are needed. GitHub Pages serves the root of `main`; preserve `.nojekyll` and relative asset paths.
-
-## Assets and evidence
-
-The four-example image gallery uses reviewed display tiles without retouching. Background and preprocessing differences are disclosed on the page. The image-quality and latency measurements have different sample sets and are documented separately. Referenced methods retain their respective authorship.
-
-Page structure was informed by [FlexAvatar](https://tobias-kirschstein.github.io/flexavatar/) and [GAGAvatar](https://xg-chu.site/project_gagavatar/).
+GitHub Pages publishes the root of `main`. Preserve `.nojekyll` and relative asset paths. This repository hosts the project page.
