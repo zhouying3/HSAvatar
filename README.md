@@ -1,6 +1,6 @@
-# OEAvatar
+# HSAVATAR
 
-Project page for **One-shot Animatable Gaussian Head Avatars with Source-adaptive Geometry and Geometry-aligned Appearance**.
+Project page for **One-shot Animatable Gaussian Avatars via an Adaptive Hybrid Shape Model and UVH-guided Appearance Modeling**.
 
 [Project page](https://zhouying3.github.io/OEAvatar/)
 
