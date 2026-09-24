@@ -2,7 +2,7 @@
 
 Project page for **One-shot Animatable Gaussian Avatars via an Adaptive Hybrid Shape Model and UVH-guided Appearance Modeling**.
 
-[Project page](https://zhouying3.github.io/OEAvatar/)
+[Project page](https://zhouying3.github.io/HSAvatar/)
 
 Ying Zhou, ZhongYuan Zhao, and Feng Gao — Peking University and Pengcheng Laboratory.
 
