@@ -34,7 +34,7 @@ function expressionFields(){
  syncFields();
 }
 function syncFields(){
- if(!connected||!state)return;
+ if(!state)return;
  document.querySelectorAll('[data-key]').forEach(input=>{const v=state[input.dataset.key][Number(input.dataset.index)];input.value=input.type==='number'?v.toFixed(3):v;});
  for(const k of ['splat','mesh','wire','refine'])$(k).checked=state[k];$('background').value=state.background;$('fov').value=state.camera.fov.toFixed(3);
  for(const key of ['orbit','pan'])for(let i=0;i<2;i++)$(`${key}-${i}`).value=state.camera[key][i].toFixed(3);
