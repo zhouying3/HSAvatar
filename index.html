@@ -47,7 +47,7 @@
 
 <section id="interactive" class="wrap interactive-section"><div class="section-title"><div><p class="eyebrow">02 / INTERACTIVE CONTROL</p><h2>Interactive Rendering</h2></div><p>Control FLAME expressions and pose,<br>explore viewpoints, and play driving motions.</p></div>
 <iframe class="live-viewer" src="viewer/index.html" title="HSAvatar interactive rendering controls" loading="lazy" allow="local-network-access"></iframe>
-<div class="viewer-toolbar"><a href="viewer/index.html" target="_blank" rel="noopener">Open full viewer ↗</a><a href="http://127.0.0.1:8877/" target="_blank" rel="noopener">Open connected rendering session ↗</a><span>103.61 FPS · RTX 4090 · 512 × 512</span></div>
+<div class="viewer-toolbar"><a href="viewer/index.html" target="_blank" rel="noopener">Open full viewer ↗</a><a href="http://127.0.0.1:8877/" target="_blank" rel="noopener">Open connected rendering session ↗</a><span>Benchmark: 103.61 FPS · RTX 4090 · 512 × 512</span></div>
 <p class="caption">Adjust head, neck, jaw, eyes and expression coefficients; switch between Gaussian rendering and the FLAME mesh; record keyframes and load driving motions. Live controls connect to a running renderer.</p>
 <details><summary>Rendering speed</summary><p>Measured on one NVIDIA RTX 4090 at 512 × 512, batch size 1, FP32. 1,440 timed renders across English and Chinese motion sequences, with 30 warm-up frames per clip and three rounds. Mean 9.65 ms/frame; P95 9.71 ms. Includes target deformation, Gaussian rendering, NAFNet refinement and alpha composition. Source initialization (46.10 ms, warm mean) and ARTalk audio-to-motion are measured separately; I/O and video encoding are excluded.</p><p><a href="assets/demos/benchmark.json">View benchmark measurements</a></p></details>
 </section>
