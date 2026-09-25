@@ -45,13 +45,10 @@
 <noscript><p>The first self-reenactment example is shown above. Enable JavaScript to switch identities, methods and driving modes.</p></noscript></details>
 </div></section>
 
-<section id="interactive" class="wrap interactive-section"><div class="section-title"><div><p class="eyebrow">02 / INTERACTIVE CONTROL</p><h2>One portrait.<br>Controllable motion.</h2></div><p>Head rotation and jaw articulation<br>through the same FLAME-driven avatar.</p></div>
-<div class="interaction-grid"><div class="control-card"><div class="fps-badge"><strong>103.61</strong><span>FPS · RTX 4090</span></div><p class="small">512 × 512 · Source avatar cached</p>
-<label for="control-mode">FLAME parameter</label><select id="control-mode"><option value="yaw">Head yaw</option><option value="pitch">Head pitch</option><option value="jaw">Jaw opening</option></select>
-<label for="control-value"><span id="control-label">Head yaw</span> <output id="control-output">0.000 rad</output></label><input id="control-value" type="range" min="0" max="60" value="30" step="1">
-<button id="control-play" type="button">Play sweep</button><button id="control-reset" type="button">Reset</button>
-<p class="small">Explore parameter sweeps rendered by HSAvatar. Controls select the corresponding rendered frame.</p></div>
-<figure class="interactive-avatar"><img id="control-frame" src="assets/demos/controls/yaw/030.jpg" width="512" height="512" alt="HSAvatar rendered with the selected FLAME parameter"><figcaption>HSAvatar · Identity 020027</figcaption></figure></div>
+<section id="interactive" class="wrap interactive-section"><div class="section-title"><div><p class="eyebrow">02 / INTERACTIVE CONTROL</p><h2>Interactive Rendering</h2></div><p>Control FLAME expressions and pose,<br>explore viewpoints, and play driving motions.</p></div>
+<iframe class="live-viewer" src="viewer/index.html" title="HSAvatar interactive rendering controls" loading="lazy" allow="local-network-access"></iframe>
+<div class="viewer-toolbar"><a href="viewer/index.html" target="_blank" rel="noopener">Open full viewer ↗</a><a href="http://127.0.0.1:8877/" target="_blank" rel="noopener">Open connected rendering session ↗</a><span>103.61 FPS · RTX 4090 · 512 × 512</span></div>
+<p class="caption">Adjust head, neck, jaw, eyes and expression coefficients; switch between Gaussian rendering and the FLAME mesh; record keyframes and load driving motions. Live controls connect to a running renderer.</p>
 <details><summary>Rendering speed</summary><p>Measured on one NVIDIA RTX 4090 at 512 × 512, batch size 1, FP32. 1,440 timed renders across English and Chinese motion sequences, with 30 warm-up frames per clip and three rounds. Mean 9.65 ms/frame; P95 9.71 ms. Includes target deformation, Gaussian rendering, NAFNet refinement and alpha composition. Source initialization (46.10 ms, warm mean) and ARTalk audio-to-motion are measured separately; I/O and video encoding are excluded.</p><p><a href="assets/demos/benchmark.json">View benchmark measurements</a></p></details>
 </section>
 <section id="audio" class="audio-section"><div class="wrap"><div class="section-title"><div><p class="eyebrow">03 / AUDIO-DRIVEN ANIMATION</p><h2>Let the portrait speak.</h2></div><p>Audio → ARTalk motion → HSAvatar</p></div>

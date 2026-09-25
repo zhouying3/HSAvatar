@@ -38,30 +38,6 @@ modeButtons.forEach(button=>button.addEventListener('click',()=>{
 baseline.addEventListener('change',renderSample);
 renderButtons();renderSample();
 
-// The public page browses actual model-rendered parameter sweeps.
-const controls = document.getElementById('control-mode');
-const slider = document.getElementById('control-value');
-const controlImage = document.getElementById('control-frame');
-let sweepTimer=null, direction=1;
-const ranges={yaw:[-.25,.25,'Head yaw'],pitch:[-.15,.15,'Head pitch'],jaw:[0,.30,'Jaw opening']};
-function updateControl(){
- const [low,high,label]=ranges[controls.value],i=Number(slider.value);
- controlImage.src=`assets/demos/controls/${controls.value}/${String(i).padStart(3,'0')}.jpg`;
- controlImage.alt=`HSAvatar, ${label} ${Number(low+(high-low)*i/60).toFixed(3)} radians`;
- document.getElementById('control-label').textContent=label;
- document.getElementById('control-output').value=`${Number(low+(high-low)*i/60).toFixed(3)} rad`;
-}
-function stopSweep(){clearInterval(sweepTimer);sweepTimer=null;document.getElementById('control-play').textContent='Play sweep';}
-controls.addEventListener('change',()=>{stopSweep();slider.value=controls.value==='jaw'?0:30;updateControl();});
-slider.addEventListener('input',()=>{stopSweep();updateControl();});
-document.getElementById('control-reset').addEventListener('click',()=>{stopSweep();slider.value=controls.value==='jaw'?0:30;updateControl();});
-document.getElementById('control-play').addEventListener('click',()=>{
- if(sweepTimer){stopSweep();return;}
- document.getElementById('control-play').textContent='Pause sweep';
- sweepTimer=setInterval(()=>{let i=Number(slider.value)+direction;if(i>=60||i<=0)direction*=-1;slider.value=i;updateControl();},80);
-});
-document.addEventListener('visibilitychange',()=>{if(document.hidden)stopSweep();});
-updateControl();
 const audioVideo=document.getElementById('audio-video');
 document.querySelectorAll('[data-audio]').forEach(button=>button.addEventListener('click',()=>{
  audioVideo.pause();audioVideo.src=`assets/demos/${button.dataset.audio}.mp4`;audioVideo.poster=`assets/demos/${button.dataset.audio}_poster.png`;audioVideo.load();
