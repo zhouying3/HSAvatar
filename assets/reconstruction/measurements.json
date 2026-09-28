@@ -1,0 +1,36 @@
+{
+  "metric": "Mean absolute RGB error on the reference foreground",
+  "rgb_range": [
+    0,
+    1
+  ],
+  "color_range": [
+    0,
+    0.4
+  ],
+  "frames_per_sequence": 50,
+  "preview_fps": 10,
+  "records": [
+    {
+      "id": "000916",
+      "ours_mean": 0.06728497550228695,
+      "rome_mean": 0.15151080060953195,
+      "relative_reduction": 0.5559064091035245,
+      "wins": 50
+    },
+    {
+      "id": "007281",
+      "ours_mean": 0.023821682069738444,
+      "rome_mean": 0.051972354347917166,
+      "relative_reduction": 0.5416470473846617,
+      "wins": 50
+    },
+    {
+      "id": "000523",
+      "ours_mean": 0.03856674285841284,
+      "rome_mean": 0.07220150703523305,
+      "relative_reduction": 0.465845735884807,
+      "wins": 50
+    }
+  ]
+}

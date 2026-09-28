@@ -10,7 +10,7 @@
 </head>
 <body>
 <a class="skip" href="#main">Skip to content</a>
-<header class="topbar"><a class="wordmark" href="#">HS<span>AVATAR</span></a><nav aria-label="Page sections"><a href="#control">Control</a><a href="#motion">Motion</a><a href="#results">Comparisons</a></nav></header>
+<header class="topbar"><a class="wordmark" href="#">HS<span>AVATAR</span></a><nav aria-label="Page sections"><a href="#control">Control</a><a href="#motion">Motion</a><a href="#results">Reconstruction</a></nav></header>
 <main id="main">
 <section class="hero wrap" aria-labelledby="title">
 <p class="eyebrow">ONE IMAGE. DEFORMABLE GEOMETRY. ALIGNED APPEARANCE.</p>
@@ -46,10 +46,16 @@
 <video id="image-video" controls muted playsinline preload="metadata" poster="assets/showcase/image-driven-0-poster.jpg" aria-label="Source portrait, driving images and HSAvatar result"><source src="assets/showcase/image-driven-0.mp4" type="video/mp4"></video></div>
 </section>
 <section id="results" class="tinted result-section"><div class="wrap">
-<div class="section-title"><div><p class="eyebrow">03 / SELECTED COMPARISONS</p><h2>A closer look.</h2></div></div>
-<div class="comparison-toolbar"><div class="portrait-picker" role="group" aria-label="Choose a comparison portrait"><button type="button" data-comparison="0" aria-pressed="true" aria-label="Comparison portrait one"><img src="assets/showcase/portrait-0.png" width="512" height="512" alt="First comparison source portrait"></button><button type="button" data-comparison="1" aria-pressed="false" aria-label="Comparison portrait two"><img src="assets/showcase/portrait-1.png" width="512" height="512" alt="Second comparison source portrait"></button></div><span class="caption">Source portraits</span><output id="moment-label" aria-live="polite">Moment 1 of 3</output></div>
-<img class="keyframe-image" id="comparison-image" src="assets/showcase/comparison-0-0.jpg" width="1536" height="920" loading="lazy" alt="Matched reference, ROME and HSAvatar keyframe, with facial detail and RGB error maps">
-<div class="timeline"><button id="previous-moment" type="button" aria-label="Previous keyframe">←</button><label for="keyframe-slider">Keyframe</label><input id="keyframe-slider" type="range" min="0" max="2" step="1" value="0" aria-label="Selected comparison keyframe"><button id="next-moment" type="button" aria-label="Next keyframe">→</button></div>
-<details><summary>Comparison setup</summary><p>The examples use the same source and target frames for both methods. ROME uses its official inference pipeline; HSAvatar uses the final refined output. Facial-detail error maps use mean absolute RGB error over the reference foreground, with a shared 0–0.4 scale.</p></details>
+<div class="section-title"><div><p class="eyebrow">03 / RECONSTRUCTION</p><h2>A closer look.</h2></div><p>One source portrait.<br>Continuous reconstruction.</p></div>
+<div class="comparison-toolbar"><div class="portrait-picker" role="group" aria-label="Choose a reconstruction portrait">
+<button type="button" data-reconstruction="0" aria-pressed="true" aria-label="Reconstruction portrait one"><img src="assets/reconstruction/portrait-0-source.png" width="512" height="512" alt="First reconstruction source portrait"></button>
+<button type="button" data-reconstruction="1" aria-pressed="false" aria-label="Reconstruction portrait two"><img src="assets/reconstruction/portrait-1-source.png" width="512" height="512" alt="Second reconstruction source portrait"></button>
+<button type="button" data-reconstruction="2" aria-pressed="false" aria-label="Reconstruction portrait three"><img src="assets/reconstruction/portrait-2-source.png" width="512" height="512" alt="Third reconstruction source portrait"></button>
+</div><span class="caption">Source portraits</span><div class="pill-picker reconstruction-modes" role="group" aria-label="Reconstruction view"><button type="button" data-reconstruction-mode="rgb" aria-pressed="true">Reconstruction</button><button type="button" data-reconstruction-mode="error" aria-pressed="false">RGB error</button></div></div>
+<div class="reconstruction-media" id="reconstruction-media"><p class="reconstruction-label" id="reconstruction-label">HSAvatar</p><div class="comparison-labels" id="error-labels" hidden><span>ROME</span><strong>HSAvatar</strong></div>
+<video id="reconstruction-video" controls muted loop playsinline preload="metadata" poster="assets/reconstruction/portrait-0-poster.jpg" width="512" height="512" aria-label="HSAvatar reconstruction of portrait one"><source src="assets/reconstruction/portrait-0.mp4" type="video/mp4"></video></div>
+<div id="error-measurements" hidden><div class="error-colorbar"><span>Per-pixel RGB L1 error</span><div><div class="error-gradient"></div><div class="error-scale"><span>0</span><span>0.1</span><span>0.2</span><span>0.3</span><span>≥ 0.4</span></div></div><span>Lower is better</span></div>
+<div class="reconstruction-metrics"><p><span>ROME · sequence MAE</span><strong id="reconstruction-rome-mae"></strong></p><p><span>HSAvatar · sequence MAE</span><strong id="reconstruction-ours-mae"></strong></p><p class="reconstruction-gain"><strong id="reconstruction-gain"></strong><span>lower mean RGB error</span></p></div></div>
+<details><summary>Comparison setup</summary><p>Each example uses one fixed source portrait and 50 matched training-sequence frames. ROME follows its official inference and mask processing, with native 256 × 256 output resized to 512 × 512; HSAvatar uses the final refined 512 × 512 output. RGB error is the mean absolute difference over the same reference foreground. Sequence MAE averages all 50 frames equally, and every heatmap uses the same 0–0.4 scale.</p><p>The videos play the sampled frames at 10 frames per second. <a href="assets/reconstruction/measurements.json">View measurements</a></p></details>
 </div></section>
 </main><footer class="wrap"><a class="wordmark" href="#">HS<span>AVATAR</span></a><p>One-shot animatable Gaussian head avatars</p></footer></body></html>
