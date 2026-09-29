@@ -12,7 +12,7 @@ const reconstructionUI={
   error:document.getElementById('reconstruction-error'),
   viewport:document.getElementById('reconstruction-viewport')
 };
-let reconstructionPortrait=0,reconstructionMode='error',reconstructionFrame=25;
+let reconstructionPortrait=0,reconstructionFrame=25;
 let reconstructionLoading=true,reconstructionSeeking=false,reconstructionVersion=0,reconstructionCallback;
 const reconstructionFPS=10;
 function updateReconstructionReadout(){
@@ -40,16 +40,14 @@ function seekReconstruction(frame){
 }
 function loadReconstruction(){
   const video=reconstructionUI.video,record=reconstructionExamples[reconstructionPortrait];
-  const version=++reconstructionVersion,isError=reconstructionMode==='error';
+  const version=++reconstructionVersion;
   video.pause();reconstructionLoading=true;reconstructionSeeking=false;
   reconstructionUI.play.disabled=true;reconstructionUI.error.hidden=true;
   if(reconstructionCallback!==undefined&&video.cancelVideoFrameCallback)video.cancelVideoFrameCallback(reconstructionCallback);
   document.getElementById('reconstruction-rome-mae').textContent=record.rome_mean.toFixed(4);
   document.getElementById('reconstruction-ours-mae').textContent=record.ours_mean.toFixed(4);
   document.getElementById('reconstruction-gain').textContent=`${(record.relative_reduction*100).toFixed(1)}% lower RGB MAE`;
-  document.getElementById('reconstruction-colorbar').hidden=!isError;
-  video.setAttribute('aria-label',isError?'ROME and HSAvatar RGB error':'ROME and HSAvatar reconstruction');
-  const stem=`assets/reconstruction/${record.stem}${isError?'-errors':'-pair'}`;
+  const stem=`assets/reconstruction/${record.stem}-errors`;
   video.poster=stem+'-poster.jpg';
   video.onloadedmetadata=()=>{
     if(version!==reconstructionVersion)return;
@@ -69,10 +67,6 @@ function loadReconstruction(){
 document.querySelectorAll('[data-reconstruction]').forEach(button=>button.addEventListener('click',()=>{
   reconstructionPortrait=Number(button.dataset.reconstruction);reconstructionFrame=25;
   selectButtons('[data-reconstruction]',button);loadReconstruction();
-}));
-document.querySelectorAll('[data-reconstruction-mode]').forEach(button=>button.addEventListener('click',()=>{
-  reconstructionMode=button.dataset.reconstructionMode;
-  selectButtons('[data-reconstruction-mode]',button);loadReconstruction();
 }));
 reconstructionUI.play.addEventListener('click',()=>{
   const video=reconstructionUI.video;

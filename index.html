@@ -6,11 +6,11 @@
 <title>HSAVATAR — One-shot Animatable Gaussian Avatars via an Adaptive Hybrid Shape Model and UVH-guided Appearance Modeling</title>
 <meta name="description" content="HSAVATAR reconstructs one-shot animatable Gaussian avatars using an adaptive hybrid shape model and UVH-guided appearance modeling.">
 <link rel="icon" href="favicon.svg" type="image/svg+xml"><link rel="stylesheet" href="style.css?v=20260928-2">
-<script src="app.js?v=20260928-2" defer></script>
+<script src="app.js?v=20260929-1" defer></script>
 </head>
 <body>
 <a class="skip" href="#main">Skip to content</a>
-<header class="topbar"><a class="wordmark" href="#">HS<span>AVATAR</span></a><nav aria-label="Page sections"><a href="#control">Control</a><a href="#motion">Motion</a><a href="#results">Reconstruction</a></nav></header>
+<header class="topbar"><a class="wordmark" href="#">HS<span>AVATAR</span></a><nav aria-label="Page sections"><a href="#control">Control</a><a href="#motion">Motion</a><a href="#results">RGB error</a></nav></header>
 <main id="main">
 <section class="hero wrap" aria-labelledby="title">
 <p class="eyebrow">ONE IMAGE. DEFORMABLE GEOMETRY. ALIGNED APPEARANCE.</p>
@@ -46,7 +46,7 @@
 <video id="image-video" controls muted playsinline preload="metadata" poster="assets/showcase/image-driven-0-poster.jpg" aria-label="Source portrait, driving images and HSAvatar result"><source src="assets/showcase/image-driven-0.mp4" type="video/mp4"></video></div>
 </section>
 <section id="results" class="tinted result-section"><div class="wrap">
-<div class="section-title"><div><p class="eyebrow">03 / RECONSTRUCTION</p><h2>RGB reconstruction error</h2></div></div>
+<div class="section-title"><div><p class="eyebrow">03 / RGB ERROR</p><h2>RGB error comparison</h2></div></div>
 <div class="portrait-picker reconstruction-portraits" role="group" aria-label="Source portraits">
 <button type="button" data-reconstruction="0" aria-pressed="true" aria-label="First source portrait"><img src="assets/reconstruction/portrait-0-source.png" width="512" height="512" alt="Source portrait"></button>
 <button type="button" data-reconstruction="1" aria-pressed="false" aria-label="Second source portrait"><img src="assets/reconstruction/portrait-1-source.png" width="512" height="512" alt="Source portrait"></button>
@@ -54,7 +54,7 @@
 </div>
 <div class="reconstruction-card">
 <div class="reconstruction-summary"><p class="reconstruction-gain" id="reconstruction-gain">55.6% lower RGB MAE</p><div class="reconstruction-means"><p><span>ROME · sequence MAE</span><strong id="reconstruction-rome-mae">0.1515</strong></p><p class="ours"><span>HSAvatar · sequence MAE</span><strong id="reconstruction-ours-mae">0.0673</strong></p></div></div>
-<div class="reconstruction-controls"><div class="pill-picker" role="group" aria-label="Comparison view"><button type="button" data-reconstruction-mode="error" aria-pressed="true">RGB error</button><button type="button" data-reconstruction-mode="rgb" aria-pressed="false">Reconstruction</button></div><button type="button" id="reconstruction-play" disabled>Play</button><select id="reconstruction-speed" aria-label="Playback speed"><option value="1">1×</option><option value="0.5">0.5×</option><option value="0.25">0.25×</option></select><button type="button" id="reconstruction-native" aria-pressed="false">Original size · 512 px</button></div>
+<div class="reconstruction-controls"><button type="button" id="reconstruction-play" disabled>Play</button><select id="reconstruction-speed" aria-label="Playback speed"><option value="1">1×</option><option value="0.5">0.5×</option><option value="0.25">0.25×</option></select><button type="button" id="reconstruction-native" aria-pressed="false">Original size · 512 px</button></div>
 <div class="reconstruction-viewport" id="reconstruction-viewport"><div class="reconstruction-content"><div class="reconstruction-labels"><span>ROME</span><strong>HSAvatar</strong></div><video id="reconstruction-video" muted loop playsinline preload="metadata" poster="assets/reconstruction/portrait-0-errors-poster.jpg" width="1024" height="512" aria-label="ROME and HSAvatar RGB error"></video><div class="reconstruction-current"><span id="reconstruction-rome-frame">Frame MAE 0.1380</span><span id="reconstruction-ours-frame">Frame MAE 0.0559</span></div></div></div>
 <div class="reconstruction-colorbar" id="reconstruction-colorbar"><span>RGB L1 error</span><div><div class="reconstruction-gradient"></div><div class="reconstruction-scale"><span>0</span><span>0.1</span><span>0.2</span><span>0.3</span><span>≥ 0.4</span></div></div><span>Lower is better</span></div>
 <div class="timeline reconstruction-timeline"><button type="button" id="reconstruction-previous" aria-label="Previous frame">←</button><input type="range" id="reconstruction-frame" min="0" max="49" value="25" step="1" aria-label="Target frame"><button type="button" id="reconstruction-next" aria-label="Next frame">→</button><output id="reconstruction-frame-label">Frame 26 / 50</output></div>
